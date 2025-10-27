@@ -36,10 +36,8 @@ body {
 /* Arabic mode */
 body[dir="rtl"] {
   direction: rtl;
-  font-family: "Tajawal", "Cairo", sans-serif;
   text-align: right;
 }
-
 /* Make sure sections have proper height */
 section {
   min-height: 100vh; /* or appropriate height */

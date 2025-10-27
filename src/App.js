@@ -2,7 +2,7 @@ import React from "react";
 import Navbar from "./Home/Navbar";
 import Hero from "./Home/Hero";
 import Work from "./Home/Work";
-import Customers from "./Home/Customers";
+import Clients from "./Home/Clients";
 import CV from "./Home/CV";
 import Reviews from "./Home/Reviews";
 import Contact from "./Home/Contact";
@@ -14,7 +14,7 @@ function App() {
       <Navbar />
       <Hero />
       <Work />
-      <Customers />
+      <Clients />
       <CV />
       <Reviews />
       <Contact />

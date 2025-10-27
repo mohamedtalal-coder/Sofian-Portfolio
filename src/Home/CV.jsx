@@ -3,6 +3,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "./LanguageContext";
 import "./CV.css";
 
+import certImage1 from '../assets/StudioPhoto1.jpg'; 
+import certImage2 from '../assets/StudioPhoto2.jpg'; 
+
 const CV = () => {
   const { lang } = useLanguage();
 
@@ -70,20 +73,10 @@ const CV = () => {
         "Adobe Audition | Audio Editing",
         "RODE NT1 | Focusrite G3 | DT770 Pro",
       ],
-      awardsTitle: "Awards & Certifications",
+      // ✅ 2. Update 'awards' to hold image paths
       awards: [
-        {
-          title: "Certified Voiceover Professional",
-          issuer: "Voices Academy, 2023",
-        },
-        {
-          title: "Voice Acting & Audio Production Diploma",
-          issuer: "Online Voiceover School, 2022",
-        },
-        {
-          title: "Certificate of Excellence in Arabic Narration",
-          issuer: "Arab Media Summit, 2021",
-        },
+        { src: certImage1, alt: "Certified Voiceover Professional" },
+        { src: certImage2, alt: "Voice Acting & Audio Production Diploma" },
       ],
     },
     ar: {
@@ -135,20 +128,10 @@ const CV = () => {
         "Adobe Audition | مونتاج صوتي احترافي",
         "ميكروفون RODE NT1 | واجهة Focusrite G3 | سماعات DT770 Pro",
       ],
-      awardsTitle: "الجوائز والشهادات",
+      // ✅ 2. Update 'awards' to hold image paths for Arabic
       awards: [
-        {
-          title: "شهادة احتراف التعليق الصوتي",
-          issuer: "أكاديمية فويسز – 2023",
-        },
-        {
-          title: "دبلوم التمثيل الصوتي وإنتاج الصوت",
-          issuer: "مدرسة التعليق الصوتي عبر الإنترنت – 2022",
-        },
-        {
-          title: "شهادة التميز في التعليق العربي",
-          issuer: "قمة الإعلام العربي – 2021",
-        },
+        { src: certImage1, alt: "شهادة احتراف التعليق الصوتي" },
+        { src: certImage2, alt: "دبلوم التمثيل الصوتي وإنتاج الصوت" },
       ],
     },
   };
@@ -215,15 +198,20 @@ const CV = () => {
                 ))}
               </ul>
             </motion.div>
+
+            {/* ✅ 3. Update the Awards & Certifications rendering */}
             <motion.div className="cv-card" variants={item}>
               <h2>{t.awardsTitle}</h2>
-              <ul className="cv-awards">
-                {t.awards.map((award, i) => (
-                  <li key={i}>
-                    <strong>{award.title}</strong> — {award.issuer}
-                  </li>
+              <div className="cert-images-container"> {/* Add a container for styling */}
+                {t.awards.map((cert, i) => (
+                  <img
+                    key={i}
+                    src={cert.src}
+                    alt={cert.alt}
+                    className="cert-image" // Add a class for styling
+                  />
                 ))}
-              </ul>
+              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -233,6 +221,7 @@ const CV = () => {
             href="CV.pdf"
             download="Sofian_Shubaq_CV.pdf"
             target="_blank"
+            rel="noopener noreferrer" // Good practice for target="_blank"
             className="btn-download"
           >
             {lang === "ar" ? "تحميل السيرة الذاتية" : "Download CV"}

@@ -145,6 +145,49 @@
   color: #c084fc;
 }
 
+/* In CV.css */
+
+/* ... (Existing CV styles) ... */
+
+/* Styles for the certifications images */
+.cert-images-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.cert-image {
+  max-width: 100%;
+  height: auto;
+  
+  /* ✅ CHANGED THIS VALUE */
+  max-height: 180px; /* Was 120px. Adjust as needed. */
+  
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.cert-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .cert-images-container {
+    flex-direction: column;
+    gap: 10px;
+  }
+  .cert-image {
+  
+    /* ✅ CHANGED THIS VALUE */
+    max-height: 200px; /* Was 150px. Adjust as needed. */
+  }
+}
 /* Responsive */
 @media (max-width: 768px) {
   .cv-title {

@@ -29,7 +29,6 @@ const Contact = () => {
   const t = content[lang]; // 4. Select correct text
 
   const socialLinks = [
-    { icon: <FaFacebookF />, url: "https://facebook.com/", name: "Facebook" },
     {
       icon: <FaInstagram />,
       url: "https://www.instagram.com/s.shublaq/",

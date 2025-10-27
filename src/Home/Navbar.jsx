@@ -8,7 +8,7 @@ const navContent = {
   en: {
     home: "Home",
     gallery: "Gallery",
-    customers: "Featured Customers",
+    customers: "Featured Clients",
     cv: "CV",
     reviews: "Reviews",
     contact: "Contact Us",
@@ -53,7 +53,7 @@ const Navbar = () => {
             {navContent[lang].gallery}
           </Link>
           <Link
-            to="customers"
+            to="Clients"
             spy
             smooth
             offset={-70}

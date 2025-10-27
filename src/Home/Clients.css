@@ -1,0 +1,85 @@
+/* ... (Your .Clients-title and .subtitle styles remain the same) ... */
+
+/* ==== 🎠 NEW LOGO STYLES ==== */
+/* We prefix all classes with #Clients to make them specific */
+
+#Clients .carousel-row {
+  /* ✅ min-height for 2 rows of logos + gutter */
+  min-height: 220px;
+}
+
+#Clients .client-logo-container {
+  height: 100px;
+  padding: 10px;
+}
+
+#Clients .client-logo {
+  max-width: 100%;
+  max-height: 70px;
+  object-fit: contain;
+  transition: all 0.3s ease;
+}
+
+#Clients .client-logo:hover {
+  transform: scale(1.5);
+}
+
+/* ==== 🎠 CAROUSEL STYLES ==== */
+#Clients .carousel {
+  margin: 0 auto;
+  position: relative;
+  padding: 10px 40px;
+  max-width: 900px;
+}
+
+/* ==== INDICATORS (the dots) ==== */
+#Clients .carousel-indicators {
+  bottom: -40px;
+}
+
+#Clients .carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.6);
+  margin: 0 4px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+#Clients .carousel-indicators .active {
+  background-color: #fff;
+  transform: scale(1.3);
+}
+
+/* ==== 📱 RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .Clients-title {
+    font-size: 1.8rem;
+  }
+
+  #Clients .carousel {
+    padding: 5px 30px;
+  }
+
+  #Clients .carousel-row {
+    /* ✅ Taller min-height for 3 rows on mobile */
+    min-height: 280px;
+  }
+
+  #Clients .client-logo-container {
+    height: 80px;
+  }
+
+  #Clients .client-logo {
+    max-height: 40px;
+  }
+
+  #Clients .carousel-control-prev {
+    left: -15px;
+  }
+
+  #Clients .carousel-control-next {
+    right: -15px;
+  }
+}
