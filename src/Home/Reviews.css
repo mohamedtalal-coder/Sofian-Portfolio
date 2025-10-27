@@ -1,0 +1,118 @@
+/* ==== GENERAL CAROUSEL LAYOUT ==== */
+.carousel {
+  margin: 0 auto;
+  position: relative;
+  padding: 60px 0;
+  border-radius: 20px;
+}
+
+/* ==== IMAGES ==== */
+.carousel img {
+  height: 500px;
+  object-fit: contain;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  border-radius: 20px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.03);
+}
+
+/* ==== INDICATORS (the dots) ==== */
+.carousel-indicators {
+  bottom: -15px;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0 5px;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators [data-bs-target]:hover {
+  background-color: #c084fc;
+  box-shadow: 0 0 10px rgba(192, 132, 252, 0.8);
+}
+
+.carousel-indicators .active {
+  background-color: #a855f7;
+  transform: scale(1.3);
+  box-shadow: 0 0 15px rgba(168, 85, 247, 0.9);
+}
+
+/* ==== CONTROLS (arrows) ==== */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-image: none !important;
+  background-color: transparent !important;
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+/* CSS Arrow Shape */
+.carousel-control-prev-icon::after,
+.carousel-control-next-icon::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 16px;
+  height: 16px;
+  border-top: 3px solid #c084fc;
+  border-right: 3px solid #c084fc;
+  transform-origin: center;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+/* Left Arrow */
+.carousel-control-prev-icon::after {
+  transform: translate(-50%, -50%) rotate(-135deg);
+}
+
+/* Right Arrow */
+.carousel-control-next-icon::after {
+  transform: translate(-50%, -50%) rotate(45deg);
+}
+
+/* Hover Glow */
+.carousel-control-prev-icon:hover::after,
+.carousel-control-next-icon:hover::after {
+  border-color: #e9d5ff;
+}
+
+/* Positioning */
+.carousel-control-prev {
+  left: 20px;
+}
+
+.carousel-control-next {
+  right: 20px;
+}
+
+/* ==== RESPONSIVE ==== */
+@media (max-width: 768px) {
+  .carousel {
+    padding: 40px 0;
+  }
+
+  .carousel img {
+    height: 300px;
+  }
+
+  .carousel-control-next-icon::after {
+    left: 75%;
+  }
+
+  .carousel-control-prev-icon::after {
+    right: 50%;
+  }
+}

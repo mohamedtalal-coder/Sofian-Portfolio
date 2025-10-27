@@ -1,0 +1,90 @@
+/*  Section Base */
+#work {
+  background: #0d0d0f;
+  color: #f5f5ff;
+  border-radius: 12px;
+  padding-bottom: 100px;
+}
+
+.subtitle {
+  color: #a68ef5;
+  font-size: 1rem;
+  margin-top: -10px;
+}
+
+/* Base Card Style */
+.card {
+  border-radius: 20px;
+  background: rgba(30, 15, 40, 0.5);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(140, 60, 255, 0.3);
+  box-shadow: 0 0 25px rgba(120, 60, 255, 0.2);
+  transition: all 0.4s ease;
+  overflow: hidden;
+}
+
+/* 🎥 Video */
+.card iframe {
+  border-radius: 15px 15px 0 0;
+}
+
+/* 🟪 Card Variants for subtle uniqueness */
+.card:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 0 35px rgba(150, 90, 255, 0.5);
+}
+
+
+
+/* 🟣 Buttons */
+.btn {
+  background: linear-gradient(135deg, #6a0dad, #a855f7) !important;
+  border: none !important;
+  color: #fff !important;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 18px rgba(168, 85, 247, 0.6);
+}
+
+/* ✍️ Card Text */
+.card-title {
+  font-weight: 600;
+  color: #d5baff;
+}
+
+.card-text {
+  color: #e8e0ff;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* 🟪 Heading */
+h1 {
+  font-weight: 700;
+  color: #c084fc;
+  margin-bottom: 15px;
+}
+
+/* 🪄 Fade-in Animation */
+.card {
+  opacity: 0;
+  animation: fadeInCard 0.8s ease forwards;
+}
+
+@keyframes fadeInCard {
+  to {
+    opacity: 1;
+  }
+}
+
+/* 📱 Mobile Responsiveness */
+@media (max-width: 430px) {
+  .card {
+    width: 100% !important;
+    margin: auto;
+  }
+}

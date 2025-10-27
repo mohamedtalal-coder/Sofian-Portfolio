@@ -1,0 +1,148 @@
+/* 💜 Section */
+.Customers-section {
+  background: #0d0d0f;
+  color: #f5f5ff;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.Customers-title {
+  font-weight: 700;
+  color: #c084fc;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  color: #a68ef5;
+  font-size: 1rem;
+  margin-top: -5px;
+}
+
+/* 🧊 Customers Box */
+.Customers-box {
+  background: rgba(25, 10, 40, 0.45);
+  border: 1px solid rgba(140, 60, 255, 0.3);
+  border-radius: 30px;
+  padding: 40px 50px;
+  color: #fff;
+  max-width: 500px;
+  margin: 50px 80px;
+  box-shadow: 0 0 25px rgba(150, 60, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+}
+
+.Customers-box:hover {
+  box-shadow: 0 0 45px rgba(170, 90, 255, 0.45);
+  transform: translateY(-10px);
+}
+
+/* 🪐 List */
+.Customers-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.Customers-box li {
+  margin: 15px 0;
+  font-size: 18px;
+  color: #e8e0ff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+}
+
+.Customers-box li:hover {
+  color: #c084fc;
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+}
+
+.Customers-box .highlight {
+  color: #b57eff;
+}
+
+/* 🎙️ Microphone Image */
+.mic-container {
+  width: 50%;
+}
+
+.mic-img {
+  max-width: 85%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 30px;
+  box-shadow: 0 0 35px rgba(150, 60, 255, 0.25);
+  transition: transform 0.5s ease;
+}
+
+.mic-img:hover {
+  transform: scale(1.05);
+}
+
+/* 🎤 Icon */
+.fa-microphone {
+  color: #c084fc !important;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* 📱 Responsive Design */
+@media (max-width: 992px) {
+  .Customers-box {
+    margin: 30px auto;
+    padding: 30px;
+  }
+
+  .Customers-box li {
+    font-size: 16px;
+  }
+
+  .mic-container {
+    width: 70%;
+  }
+}
+
+@media (max-width: 768px) {
+  .Customers-title {
+    font-size: 2rem;
+  }
+
+  .Customers-box {
+    margin: 20px auto;
+    padding: 20px;
+    max-width: 80%;
+  }
+
+  .Customers-box li {
+    font-size: 0.9rem;
+  }
+
+  .mic-container {
+    width: 80%;
+  }
+
+  .mic-img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 430px) {
+  .Customers-box {
+    max-width: 95%;
+    padding: 15px;
+  }
+
+  .Customers-box li {
+    font-size: 0.8rem;
+  }
+
+  .mic-img {
+    border-radius: 20px;
+  }
+
+  .Customers-title {
+    font-size: 1.6rem;
+  }
+}
