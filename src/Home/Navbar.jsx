@@ -8,7 +8,7 @@ const navContent = {
   en: {
     home: "Home",
     gallery: "Gallery",
-    customers: "Special Customers",
+    customers: "Featured Customers",
     cv: "CV",
     reviews: "Reviews",
     contact: "Contact Us",

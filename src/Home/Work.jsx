@@ -2,9 +2,8 @@ import React from "react";
 import "./Work.css";
 import { Card, CardBody, CardTitle, CardText, Button } from "reactstrap";
 import { motion } from "framer-motion";
-import { useLanguage } from "./LanguageContext"; // 1. Import the hook
+import { useLanguage } from "./LanguageContext";
 
-// 2. Create content for both languages
 const content = {
   en: {
     title: "My Recent Work",
@@ -12,46 +11,64 @@ const content = {
       "A few highlights from projects I’ve crafted with care and creativity.",
     cards: [
       {
-        title: "Commercial Demo",
+        title: "UAE Cybersecurity Council – Arabic Voiceover Project",
         description:
-          "A dynamic commercial voiceover for a leading tech brand, showcasing an energetic and persuasive tone.",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your video
+          "Arabic voiceover for a national cybersecurity awareness campaign promoting digital safety across the UAE.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7331158964216176641?compact=1",
         buttonText: "View Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7331158964216176641?compact=1",
       },
       {
-        title: "IVR & Telephony",
+        title: "Qatar University – International Congress Voiceover Project",
         description:
-          "Professional and clear IVR system recordings for a multinational bank, ensuring a smooth user experience.",
-        videoUrl: "https://www.youtube.com/embed/2CMoyNf4_1M", // Replace with your video
-        buttonText: "Listen Now",
+          "Arabic voiceover and bilingual script for the Third International Congress for Engineering and Technology, showcased during the event’s opening ceremony.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7332983999574810624?compact=1",
+        buttonText: "View Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7332983999574810624?compact=1",
       },
       {
-        title: "E-Learning Module",
+        title: "Ministry of Justice, Qatar – QDI App Voiceover",
         description:
-          "Engaging and educational narration for an online course on digital marketing, recorded in formal Arabic.",
-        videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw", // Replace with your video
-        buttonText: "Learn More",
+          "Arabic voiceover for an instructional video guiding users through QDI app transactions, enhancing clarity and accessibility in digital legal services.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7338030305280200704?compact=1",
+        buttonText: "view Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7338030305280200704?compact=1",
       },
       {
-        title: "Documentary Narration",
+        title: "Delta Force Game – Arabic Voice of the Commander",
         description:
-          "Warm and authoritative narration for a nature documentary, bringing the story to life.",
-        videoUrl: "https://www.youtube.com/embed/L_LUpnjgPso", // Replace with your video
-        buttonText: "Watch Clip",
+          "Arabic voiceover for the Commander character in Delta Force, guiding players through missions and strategies. Recorded across multiple sessions in Jakarta and Dubai for this globally successful title.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7383826945546846208?compact=1",
+        buttonText: "View Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7383826945546846208?compact=1",
       },
       {
-        title: "Video Game Character",
+        title: "Harvard University – Arabic E-Learning Voiceover",
         description:
-          "Character voice acting for an action-adventure game, providing a rugged and heroic voice.",
-        videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0", // Replace with your video
-        buttonText: "See in Game",
+          "Recorded a Modern Standard Arabic E-Learning project for Harvard University’s School of Public Health — three units totaling over 8,700 words, designed to support Arabic learners in public health education.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7372461376830627840?compact=1",
+        buttonText: "View Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7372461376830627840?compact=1",
       },
       {
-        title: "Corporate Video",
+        title: "English Accent Voiceover Demos – American & Arab English",
         description:
-          "Confident and trustworthy voiceover for a corporate promotional video, in a clear English accent.",
-        videoUrl: "https://www.youtube.com/embed/6-x1gS8q0g0", // Replace with your video
-        buttonText: "View Demo",
+          "Showcasing versatility in both American and Arab English accents, these demos demonstrate my ability to adapt tone and delivery to suit different projects and audiences.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7348892976242118656?compact=1",
+        buttonText: "view Project",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7348892976242118656?compact=1",
       },
     ],
   },
@@ -60,82 +77,105 @@ const content = {
     subtitle: "مقتطفات من المشاريع التي قمت بتسجيلها بحرص وإبداع.",
     cards: [
       {
-        title: "إعلان تجاري",
+        title: "مجلس الأمن السيبراني الإماراتي – مشروع تعليق صوتي",
         description:
-          "تعليق صوتي إعلاني ديناميكي لعلامة تجارية رائدة في مجال التكنولوجيا، يبرز نبرة حماسية ومقنعة.",
-        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Replace with your video
+          "تعليق صوتي باللغة العربية لحملة توعية وطنية بالأمن السيبراني في دولة الإمارات.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7331158964216176641?compact=1",
         buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7331158964216176641?compact=1",
       },
       {
-        title: "رد آلي (IVR)",
+        title:
+          "جامعة قطر – مشروع التعليق الصوتي للمؤتمر الدولي الثالث للهندسة والتكنولوجيا",
         description:
-          "تسجيلات نظام رد آلي واضحة واحترافية لبنك متعدد الجنسيات، لضمان تجربة مستخدم سلسة.",
-        videoUrl: "https://www.youtube.com/embed/2CMoyNf4_1M", // Replace with your video
-        buttonText: "استمع الآن",
+          "تعليق صوتي عربي وكتابة نص ثنائي اللغة للمؤتمر الدولي الثالث للهندسة والتكنولوجيا، عُرض خلال حفل الافتتاح.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7332983999574810624?compact=1",
+        buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7332983999574810624?compact=1",
       },
       {
-        title: "وحدة تعليم إلكتروني",
+        title: "وزارة العدل – قطر | تعليق صوتي لتطبيق",
         description:
-          "سرد تعليمي وجذاب لدورة تدريبية عبر الإنترنت حول التسويق الرقمي، مسجلة باللغة العربية الفصحى.",
-        videoUrl: "https://www.youtube.com/embed/jNQXAC9IVRw", // Replace with your video
-        buttonText: "اعرف المزيد",
+          "تعليق صوتي باللغة العربية لفيديو إرشادي يوضح خطوات استخدام تطبيق QDI، بهدف تعزيز وضوح الخدمات القانونية الرقمية وسهولة الوصول إليها.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7338030305280200704?compact=1",
+        buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7338030305280200704?compact=1",
       },
       {
-        title: "سرد وثائقي",
+        title: "لعبة Delta Force – الصوت العربي للقائد",
         description:
-          "سرد دافئ وموثوق لفيلم وثائقي عن الطبيعة، يضفي الحيوية على القصة.",
-        videoUrl: "https://www.youtube.com/embed/L_LUpnjgPso", // Replace with your video
-        buttonText: "شاهد المقطع",
+          "تعليق صوتي عربي لشخصية القائد في لعبة Delta Force، لتوجيه اللاعبين أثناء المهام والاستراتيجيات. تم التسجيل عبر جلسات متعددة في جاكرتا ودبي لهذا العمل العالمي الناجح.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7383826945546846208?compact=1",
+        buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7383826945546846208?compact=1",
       },
       {
-        title: "شخصية لعبة فيديو",
+        title: "جامعة هارفارد – تعليق صوتي عربي للتعليم الإلكتروني",
         description:
-          "تمثيل صوتي لشخصية في لعبة مغامرات، بصوت قوي وبطولي.",
-        videoUrl: "https://www.youtube.com/embed/9bZkp7q19f0", // Replace with your video
-        buttonText: "شاهد باللعبة",
+          "تسجيل مشروع تعليم إلكتروني باللغة العربية الفصحى لمدرسة الصحة العامة في جامعة هارفارد، يتضمن ثلاث وحدات بأكثر من ٨٬٧٠٠ كلمة لدعم تعلم الصحة العامة باللغة العربية.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7372461376830627840?compact=1",
+        buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7372461376830627840?compact=1",
       },
       {
-        title: "فيديو مؤسسي",
+        title: "عينات تعليق صوتي بالإنجليزية – اللهجة الأمريكية والعربية",
         description:
-          "تعليق صوتي واثق وجدير بالثقة لفيديو ترويجي لشركة، بلكنة إنجليزية واضحة.",
-        videoUrl: "https://www.youtube.com/embed/6-x1gS8q0g0", // Replace with your video
-        buttonText: "شاهد العينة",
+          "عرض لقدرتي على التكيّف مع مختلف اللهجات الإنجليزية، من الأمريكية إلى العربية، لتقديم أداء يناسب تنوع المشاريع والجمهور.",
+        videoUrl:
+          "https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7348892976242118656?compact=1",
+        buttonText: "شاهد المشروع",
+        buttonUrl:
+          "https://www.linkedin.com/feed/update/urn:li:ugcPost:7348892976242118656?compact=1",
       },
     ],
   },
 };
 
 function Work() {
-  const { lang } = useLanguage(); // 3. Get current language
+  const { lang } = useLanguage();
 
-  // Framer Motion animation settings
   const container = {
     hidden: { opacity: 0 },
     show: {
       opacity: 1,
-      transition: { staggerChildren: 0.2 }, // Stagger slightly faster
+      transition: { staggerChildren: 0.2 },
     },
   };
 
   const item = {
-    hidden: { opacity: 0, y: 60 },
+    hidden: { opacity: 0, y: 80, scale: 0.9 },
     show: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
+      scale: 1,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
     },
   };
 
   return (
     <section id="gallery" className="container py-5">
       <div className="row justify-content-center">
-        <div className="text-center mb-5">
-          {/* 4. Use dynamic content */}
+        <motion.div
+          className="text-center mb-5"
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+        >
           <h1>{content[lang].title}</h1>
           <p className="subtitle">{content[lang].subtitle}</p>
-        </div>
+        </motion.div>
 
-        {/* 5. Use Bootstrap row for responsive grid */}
         <motion.div
           className="row justify-content-center"
           variants={container}
@@ -143,27 +183,23 @@ function Work() {
           whileInView="show"
           viewport={{ once: true, amount: 0.1 }}
         >
-          {/* 6. Map over the 6 cards */}
           {content[lang].cards.map((card, index) => (
             <motion.div
               key={index}
-              // 7. These classes create the responsive grid
               className="col-lg-4 col-md-6 col-6 mb-4"
               variants={item}
             >
               <Card className="work-card">
-                {/* Iframe is now responsive via CSS */}
                 <iframe
                   src={card.videoUrl}
                   title={card.title}
                   frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
                 <CardBody>
                   <CardTitle tag="h5">{card.title}</CardTitle>
                   <CardText>{card.description}</CardText>
-                  <a href="#" target="_blank" rel="noreferrer">
+                  <a href={card.buttonUrl} target="_blank" rel="noreferrer">
                     <Button className="btn btn-block">{card.buttonText}</Button>
                   </a>
                 </CardBody>
@@ -177,4 +213,3 @@ function Work() {
 }
 
 export default Work;
-

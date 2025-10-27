@@ -1,15 +1,17 @@
-/* 💜 Section */
+/* 🌌 Gradient Background + General Layout */
 .Customers-section {
-  background: #0d0d0f;
+
   color: #f5f5ff;
-  padding: 100px 0;
+  padding: 90px 0;
   overflow: hidden;
+  backdrop-filter: blur(12px);
 }
 
+/* 🎯 Titles */
 .Customers-title {
   font-weight: 700;
+  font-size: 2.4rem;
   color: #c084fc;
-  margin-bottom: 10px;
 }
 
 .subtitle {
@@ -18,26 +20,25 @@
   margin-top: -5px;
 }
 
-/* 🧊 Customers Box */
+/* 🪩 Card Box (Glass Style) */
 .Customers-box {
-  background: rgba(25, 10, 40, 0.45);
-  border: 1px solid rgba(140, 60, 255, 0.3);
-  border-radius: 30px;
-  padding: 40px 50px;
+  background: rgba(40, 10, 70, 0.4);
+  border: 1px solid rgba(150, 80, 255, 0.35);
+  border-radius: 28px;
+  padding: 35px 45px;
   color: #fff;
-  max-width: 500px;
-  margin: 50px 80px;
-  box-shadow: 0 0 25px rgba(150, 60, 255, 0.15);
-  backdrop-filter: blur(10px);
-  transition: all 0.4s ease;
+  max-width: 420px;
+  margin: 30px;
+  backdrop-filter: blur(12px);
+  transition: all 0.35s ease;
 }
 
 .Customers-box:hover {
-  box-shadow: 0 0 45px rgba(170, 90, 255, 0.45);
-  transform: translateY(-10px);
+  transform: translateY(-8px);
+  box-shadow: 0 0 45px rgba(180, 100, 255, 0.45);
 }
 
-/* 🪐 List */
+/* 📜 List Styling */
 .Customers-box ul {
   list-style: none;
   padding: 0;
@@ -45,104 +46,94 @@
 }
 
 .Customers-box li {
-  margin: 15px 0;
-  font-size: 18px;
-  color: #e8e0ff;
+  margin: 12px 0;
+  font-size: 1rem;
+  color: #e6dcff;
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   transition: all 0.3s ease;
 }
 
 .Customers-box li:hover {
   color: #c084fc;
-  text-shadow: 0 0 10px rgba(192, 132, 252, 0.5);
+  text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
 }
 
-.Customers-box .highlight {
-  color: #b57eff;
+.fa-microphone {
+  color: #c084fc;
+  font-size: 1.1rem;
 }
 
-/* 🎙️ Microphone Image */
-.mic-container {
-  width: 50%;
-}
-
+/* 🎙️ Image Styling */
 .mic-img {
-  max-width: 85%;
-  height: auto;
+  width: 85%;
+  max-width: 420px;
+  border-radius: 24px;
   object-fit: cover;
-  border-radius: 30px;
-  box-shadow: 0 0 35px rgba(150, 60, 255, 0.25);
+  box-shadow: 0 0 40px rgba(150, 60, 255, 0.3);
   transition: transform 0.5s ease;
 }
 
 .mic-img:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-/* 🎤 Icon */
-.fa-microphone {
-  color: #c084fc !important;
-  margin-right: 10px;
-  font-size: 1.1rem;
+/* 🔄 RTL Support */
+.rtl {
+  direction: rtl;
+  text-align: right;
 }
 
-/* 📱 Responsive Design */
+.rtl .Customers-box li {
+  justify-content: flex-end;
+}
+
+.rtl .fa-microphone {
+  margin-left: 10px;
+  margin-right: 0;
+}
+
+/* 📱 Responsive */
 @media (max-width: 992px) {
   .Customers-box {
-    margin: 30px auto;
-    padding: 30px;
+    margin: 20px auto;
+    padding: 25px;
+    max-width: 90%;
   }
 
-  .Customers-box li {
-    font-size: 16px;
-  }
-
-  .mic-container {
-    width: 70%;
+  .mic-img {
+    width: 90%;
+    max-width: 350px;
   }
 }
 
 @media (max-width: 768px) {
   .Customers-title {
-    font-size: 2rem;
-  }
-
-  .Customers-box {
-    margin: 20px auto;
-    padding: 20px;
-    max-width: 80%;
+    font-size: 1.8rem;
   }
 
   .Customers-box li {
     font-size: 0.9rem;
   }
 
-  .mic-container {
-    width: 80%;
-  }
-
-  .mic-img {
-    max-width: 90%;
+  .Customers-box {
+    padding: 20px;
+    margin-bottom: 100px;
   }
 }
 
-@media (max-width: 430px) {
-  .Customers-box {
-    max-width: 95%;
-    padding: 15px;
+@media (max-width: 576px) {
+  .Customers-title {
+    font-size: 1.8rem;
   }
 
   .Customers-box li {
-    font-size: 0.8rem;
+    font-size: 0.9rem;
   }
 
-  .mic-img {
-    border-radius: 20px;
-  }
-
-  .Customers-title {
-    font-size: 1.6rem;
+  .Customers-box {
+    padding: 20px;
+    margin-bottom: 100px;
   }
 }

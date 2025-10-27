@@ -46,12 +46,12 @@
 }
 
 .nav-links .active {
-  color: #8900fa !important;
+  color: #a855f7 !important;
 }
 
 .nav-links a:hover {
   cursor: pointer;
-  color: #8900fa !important;
+  color: #a855f7 !important;
   transform: scale(1.08);
 }
 

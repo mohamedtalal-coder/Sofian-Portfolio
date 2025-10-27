@@ -1,6 +1,11 @@
 /*  Section Base */
 #work {
-  background: #0d0d0f;
+  background: linear-gradient(
+    180deg,
+    rgba(20, 8, 40, 1) 0%,
+    rgba(30, 15, 50, 1) 50%,
+    rgba(25, 12, 45, 1) 100%
+  );
   color: #f5f5ff;
   border-radius: 12px;
   padding-bottom: 100px;
@@ -21,11 +26,18 @@
   box-shadow: 0 0 25px rgba(120, 60, 255, 0.2);
   transition: all 0.4s ease;
   overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 /* 🎥 Video */
 .card iframe {
   border-radius: 15px 15px 0 0;
+  width: 100%;
+  height: 320px; /* increased from ~280px */
+  border-radius: 15px 15px 0 0;
+  flex-shrink: 0;
 }
 
 /* 🟪 Card Variants for subtle uniqueness */
@@ -33,8 +45,6 @@
   transform: translateY(-12px) scale(1.02);
   box-shadow: 0 0 35px rgba(150, 90, 255, 0.5);
 }
-
-
 
 /* 🟣 Buttons */
 .btn {
@@ -82,9 +92,28 @@ h1 {
 }
 
 /* 📱 Mobile Responsiveness */
+@media (max-width: 576px) {
+  .work-card {
+    width: 100% !important;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+  }
+
+  .row .col-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .work-card iframe {
+    height: 280px;
+    width: 100% !important; /* slightly smaller on mobile */
+  }
+}
+
 @media (max-width: 430px) {
   .card {
     width: 100% !important;
-    margin: auto;
+    overflow: hidden;
+    margin-left: 0px !important;
   }
 }

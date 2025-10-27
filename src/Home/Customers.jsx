@@ -1,77 +1,97 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Customers.css";
-// import mic from "../assets/Picture1.png";
+import { useLanguage } from "./LanguageContext"; // ✅ Make sure to import this
+import photo from "../assets/pfp.jpg";
 
-function Customers() {
-  // Animation variants
+const Customers = () => {
+  const { lang } = useLanguage();
+
+  // ✅ Animation Variants
   const containerVariants = {
     hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.8, ease: "easeOut" },
-    },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } },
   };
 
   const listVariants = {
     hidden: {},
-    visible: {
-      transition: { staggerChildren: 0.2 },
-    },
+    visible: { transition: { staggerChildren: 0.15 } },
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, x: 30 },
+    hidden: { opacity: 0, x: 40 },
     visible: {
       opacity: 1,
       x: 0,
       transition: { duration: 0.6, ease: "easeOut" },
     },
-    hover: {
-      scale: 1.05,
-      color: "#c084fc",
-      textShadow: "0 0 10px rgba(192,132,252,0.6)",
-      transition: { duration: 0.3 },
-    },
   };
 
-  const imageVariants = {
-    hidden: { opacity: 0, scale: 0.85 },
-    visible: {
-      opacity: 1,
-      scale: 1,
-      transition: { duration: 1, ease: "easeOut" },
+  // ✅ Customer Data
+  const clients = [
+    {
+      en: "Emirates – Major International Airline (Private)",
+      ar: "طيران الإمارات – شركة طيران دولية كبرى (خاصة)",
     },
-    float: {
-      y: [0, -10, 0],
-      transition: {
-        duration: 4,
-        repeat: Infinity,
-        ease: "easeInOut",
-      },
+    {
+      en: "PepsiCo – Global Food & Beverage Corporation (Private)",
+      ar: "بيبسيكو – شركة عالمية للأغذية والمشروبات (خاصة)",
+    },
+    {
+      en: "Huawei – Multinational Technology Company (Private)",
+      ar: "هواوي – شركة تكنولوجيا متعددة الجنسيات (خاصة)",
+    },
+    {
+      en: "Vodafone – Global Telecommunications Company (Private)",
+      ar: "فودافون – شركة اتصالات عالمية (خاصة)",
+    },
+    {
+      en: "STC – Saudi Telecom Company (Government-Owned)",
+      ar: "شركة الاتصالات السعودية – مملوكة للحكومة",
+    },
+    {
+      en: "ADNOC – Abu Dhabi National Oil Company (Government)",
+      ar: "أدنوك – شركة بترول أبوظبي الوطنية (حكومية)",
+    },
+    {
+      en: "Australian Government (Victoria & NSW)",
+      ar: "الحكومة الأسترالية – ولايتي فكتوريا ونيو ساوث ويلز",
+    },
+    {
+      en: "Ministry of Justice – Qatar",
+      ar: "وزارة العدل – قطر",
+    },
+  ];
+
+  // ✅ Section Titles
+  const titles = {
+    en: {
+      main: "Featured Customers",
+      subtitle: "Brands and organizations I’ve collaborated with.",
+    },
+    ar: {
+      main: "العملاء المميزون",
+      subtitle: "العلامات التجارية والمؤسسات التي تعاونت معها.",
     },
   };
 
   return (
     <motion.section
       id="customers"
-      className="Customers-section"
+      className={`Customers-section ${lang === "ar" ? "rtl" : ""}`}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
       viewport={{ once: true }}
     >
       <div className="container text-center mb-5">
-        <h1 className="Customers-title">Featured Customers</h1>
-        <p className="subtitle">
-          A few of the amazing brands and teams I’ve collaborated with.
-        </p>
+        <h1 className="Customers-title">{titles[lang].main}</h1>
+        <p className="subtitle">{titles[lang].subtitle}</p>
       </div>
 
       <div className="container-fluid">
-        <div className="row d-flex align-items-center">
-          {/* Customers List */}
+        <div className="row d-flex align-items-center justify-content-center">
+          {/* 🟣 Left: Customers List */}
           <div className="col-12 col-md-6 d-flex justify-content-center">
             <motion.div
               className="Customers-box"
@@ -80,40 +100,30 @@ function Customers() {
               whileInView="visible"
               viewport={{ once: true }}
             >
-              <ul className="d-flex flex-column justify-content-center">
-                {[
-                  "Nebula Digital — Creative Media Agency",
-                  "Aurora Tech Labs — AI & Automation",
-                  "Eclipse Marketing — Branding & Strategy",
-                  "Stellar Sound Studios — Voiceover Production",
-                  "Orbit Real Estate — Property Branding",
-                  "Luna Media — YouTube Network Partner",
-                ].map((client, index) => (
+              <motion.ul className="d-flex flex-column justify-content-center">
+                {clients.map((client, index) => (
                   <motion.li
                     key={index}
                     variants={itemVariants}
-                    whileHover="hover"
+                    whileHover={{ scale: 1.05 }}
                   >
                     <i className="fa fa-microphone"></i>
-                    <span className={index % 2 === 0 ? "highlight" : ""}>
-                      {client}
-                    </span>
+                    <span>{lang === "ar" ? client.ar : client.en}</span>
                   </motion.li>
                 ))}
-              </ul>
+              </motion.ul>
             </motion.div>
           </div>
 
-          {/* Animated Microphone */}
-          <div className="col-12 col-md-6 d-flex justify-content-center mic-container m-auto">
+          {/* 🎙️ Right: Static Microphone Image */}
+          <div className="col-12 col-md-6 d-flex justify-content-center">
             <motion.img
-              src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGN4dTg5bnhsOXJqcXBidTRlYmx6czRhZzN2M3BheG5rcXd1Z2xhbyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/r42iXcmLhz2MtIWkCv/giphy.gif"
-              alt="Microphone illustration"
+              src={photo}
+              alt="myPhoto"
               className="mic-img"
-              variants={imageVariants}
-              initial="hidden"
-              whileInView="visible"
-              animate="float"
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1 }}
               viewport={{ once: true }}
             />
           </div>
@@ -121,6 +131,6 @@ function Customers() {
       </div>
     </motion.section>
   );
-}
+};
 
 export default Customers;

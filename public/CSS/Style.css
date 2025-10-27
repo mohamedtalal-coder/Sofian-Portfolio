@@ -29,9 +29,7 @@
 
 /* Default: English (LTR) */
 body {
-  background:  #100425 !important;
-  background-size: cover;
-  background-attachment: fixed;
+  background: #100425 !important;
   direction: ltr;
 }
 

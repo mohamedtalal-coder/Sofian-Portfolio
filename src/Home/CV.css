@@ -1,5 +1,4 @@
 .cv-section {
-  background: #0d0d0f;
   color: #f5f5ff;
   padding: 100px 0;
   overflow: hidden;
@@ -86,7 +85,7 @@
 .cv-skills {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin-top: 0px;
 }
 
 .cv-skills li {
@@ -124,9 +123,26 @@
 }
 
 .btn-download:hover {
+  color: #fff;
   background: linear-gradient(90deg, #9333ea, #c084fc);
   box-shadow: 0 0 20px rgba(180, 90, 255, 0.4);
-  transform: translateY(-3px);
+  transform: scale(1.05) translateY(-3px);
+}
+.cv-awards {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0 0;
+}
+
+.cv-awards li {
+  color: #ddd;
+  font-size: 1rem;
+  margin-bottom: 8px;
+  line-height: 1.5;
+}
+
+.cv-awards li strong {
+  color: #c084fc;
 }
 
 /* Responsive */

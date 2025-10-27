@@ -1,4 +1,16 @@
 /* ==== GENERAL CAROUSEL LAYOUT ==== */
+#reviews {
+  padding: 100px 0;
+ 
+}
+
+#reviews h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #c084fc;
+  margin-bottom: 2rem !important;
+}
+
 .carousel {
   margin: 0 auto;
   position: relative;
