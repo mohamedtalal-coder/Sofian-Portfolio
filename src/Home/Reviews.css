@@ -60,18 +60,40 @@
 }
 
 /* ==== CONTROLS (arrows) ==== */
-#reviews .carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-image: none !important;
-  background-color: transparent !important;
+#reviews .carousel-control-prev,
+#reviews .carousel-control-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
+  background: transparent;
+  border: none;
+  z-index: 5;
+}
+
+/* Left arrow position */
+#reviews .carousel-control-prev {
+  left: 20px;
+}
+
+/* Right arrow position */
+#reviews .carousel-control-next {
+  right: 20px;
+}
+
+/* ==== ICON STYLE ==== */
+#reviews .carousel-control-prev-icon,
+#reviews .carousel-control-next-icon {
+  background: none !important;
+  width: 100%;
+  height: 100%;
   position: relative;
 }
 
-/* CSS Arrow Shape */
+/* Arrow Shape */
 #reviews .carousel-control-prev-icon::after,
-.carousel-control-next-icon::after {
+#reviews .carousel-control-next-icon::after {
   content: '';
   position: absolute;
   top: 50%;
@@ -81,7 +103,6 @@
   border-top: 3px solid #c084fc;
   border-right: 3px solid #c084fc;
   transform-origin: center;
-  z-index: 10;
   transition: all 0.3s ease;
 }
 
@@ -97,34 +118,31 @@
 
 /* Hover Glow */
 #reviews .carousel-control-prev-icon:hover::after,
-.carousel-control-next-icon:hover::after {
+#reviews .carousel-control-next-icon:hover::after {
   border-color: #e9d5ff;
 }
 
-/* Positioning */
-#reviews .carousel-control-prev {
-  left:10px;
-}
-
-#reviews.carousel-control-next {
-  right: 20px;
-}
-
 /* ==== RESPONSIVE ==== */
-@media (max-width: 768px) {
-#reviews  .carousel {
-    padding: 40px 0;
+@media (max-width: 992px) {
+  #reviews .carousel-control-prev {
+    left: 10px;
+  }
+  #reviews .carousel-control-next {
+    right: 10px;
+  }
+}
+
+@media (max-width: 576px) {
+  #reviews .carousel-control-prev,
+  #reviews .carousel-control-next {
+    width: 40px;
+    height: 40px;
   }
 
-#reviews  .carousel img {
-    height: 300px;
+  #reviews .carousel-control-prev {
+    left: 5px;
   }
-
-#reviews  .carousel-control-next-icon::after {
-    left: 75%;
-  }
-
-#reviews  .carousel-control-prev-icon::after {
-    right: 50%;
+  #reviews .carousel-control-next {
+    right: 5px;
   }
 }
