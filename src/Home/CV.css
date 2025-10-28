@@ -2,6 +2,7 @@
   color: #f5f5ff;
   padding: 100px 0;
   overflow: hidden;
+  
 }
 
 .cv-title {
@@ -192,6 +193,7 @@
 
 /* Responsive adjustments for smaller screens */
 @media (max-width: 1200px) {
+
   .cert-images-container {
     gap: 10px !important  ;
   }

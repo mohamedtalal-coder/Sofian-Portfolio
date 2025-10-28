@@ -124,6 +124,9 @@
 
 /* ==== RESPONSIVE ==== */
 @media (max-width: 992px) {
+  #reviews .carousel img{
+   height: 200px; 
+  }
   #reviews .carousel-control-prev {
     left: 10px;
   }
@@ -133,6 +136,9 @@
 }
 
 @media (max-width: 576px) {
+  #reviews .carousel img{
+   height: 150px; 
+  }
   #reviews .carousel-control-prev,
   #reviews .carousel-control-next {
     width: 40px;

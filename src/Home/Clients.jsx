@@ -27,7 +27,7 @@ import logo15 from "../assets/logos/Listerine.png";
 import logo16 from "../assets/logos/MWANI Qatar.jpg";
 import logo17 from "../assets/logos/Magneti Marelli.png";
 import logo18 from "../assets/logos/Ministry of Energy and Infrastructure uae.jpg";
-import logo19 from "../assets/logos/Ministry of Justice qatar.jpg";
+import logo19 from "../assets/logos/Ministry of Justice qatar.png";
 import logo20 from "../assets/logos/Mobile legends.png";
 import logo21 from "../assets/logos/Moscow Kremlin Museum.png";
 import logo22 from "../assets/logos/NSW.jpg";
@@ -45,6 +45,13 @@ import logo33 from "../assets/logos/UDC qatar.png";
 import logo34 from "../assets/logos/University of Qatar.png";
 import logo35 from "../assets/logos/Victoria State.jpg";
 import logo36 from "../assets/logos/Vodafone.png";
+import logo37 from "../assets/logos/AOE.jpg";
+import logo38 from "../assets/logos/oneState.png";
+import logo39 from "../assets/logos/Zain Sudan.png";
+import logo40 from "../assets/logos/Woolworths.png";
+import logo41 from "../assets/logos/Wonderful indonesia.png";
+import logo42 from "../assets/logos/Omantel.png";
+
 
 // ... rest of your component code
 
@@ -117,7 +124,13 @@ const Clients = () => {
     logo33,
     logo34,
     logo35,
-    logo36
+    logo36,
+    logo37,
+    logo38,
+    logo39,
+    logo40,
+    logo41,
+    logo42,
   ];
 
   // ... rest of your component code
