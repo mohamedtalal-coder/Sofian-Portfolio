@@ -164,7 +164,7 @@ const Clients = () => {
         <div className="row justify-content-center align-items-stretch carousel-row gy-4">
           {slideLogos.map((logoSrc, innerIndex) => ( // Changed 'domain' to 'logoSrc'
             <div
-              className="col-6 col-md-4 d-flex justify-content-center align-items-center client-logo-container"
+              className="col-5 col-sm-4 col-md-4 d-flex justify-content-center align-items-center client-logo-container"
               key={innerIndex}
             >
               <img
@@ -192,7 +192,7 @@ const Clients = () => {
     <motion.section
       id="Clients"
       // 5. Add RTL class
-      className={`Clients-section ${lang === "ar" ? "rtl" : ""}`}
+      className={`Clients-section d-flex flex-column justify-content-center ${lang === "ar" ? "rtl" : ""}`}
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"

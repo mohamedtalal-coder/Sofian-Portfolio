@@ -150,22 +150,36 @@
 /* ... (Existing CV styles) ... */
 
 /* Styles for the certifications images */
+.cv-card-imgs {
+  background: rgba(25, 10, 40, 0.45);
+  border: 1px solid rgba(140, 60, 255, 0.3);
+  border-radius: 25px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(140, 60, 255, 0.15);
+  backdrop-filter: blur(10px);
+  transition: all 0.4s ease;
+  padding: 20px;
+}
+
+.cv-card-imgs:hover {
+  box-shadow: 0 0 35px rgba(170, 90, 255, 0.4);
+  transform: translateY(-6px);
+}
 .cert-images-container {
   display: flex;
   flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
+  gap: 25px;
+  justify-content: space-around;
   align-items: center;
-  margin-top: 20px;
 }
 
 .cert-image {
   max-width: 100%;
   height: auto;
-  
+
   /* ✅ CHANGED THIS VALUE */
-  max-height: 180px; /* Was 120px. Adjust as needed. */
-  
+  max-height: 285px; /* Was 120px. Adjust as needed. */
+
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -177,19 +191,23 @@
 }
 
 /* Responsive adjustments for smaller screens */
+@media (max-width: 1200px) {
+  .cert-images-container {
+    gap: 10px !important  ;
+  }
+  .cert-image {
+    /* ✅ CHANGED THIS VALUE */
+    max-height: 250px; /* Was 150px. Adjust as needed. */
+  }
+}
 @media (max-width: 768px) {
   .cert-images-container {
-    flex-direction: column;
     gap: 10px;
   }
   .cert-image {
-  
     /* ✅ CHANGED THIS VALUE */
     max-height: 200px; /* Was 150px. Adjust as needed. */
   }
-}
-/* Responsive */
-@media (max-width: 768px) {
   .cv-title {
     font-size: 2rem;
   }
@@ -198,3 +216,4 @@
     align-items: center;
   }
 }
+

@@ -200,7 +200,7 @@ const CV = () => {
             </motion.div>
 
             {/* ✅ 3. Update the Awards & Certifications rendering */}
-            <motion.div className="cv-card" variants={item}>
+            <motion.div className="cv-card-imgs" variants={item}>
               <h2>{t.awardsTitle}</h2>
               <div className="cert-images-container"> {/* Add a container for styling */}
                 {t.awards.map((cert, i) => (

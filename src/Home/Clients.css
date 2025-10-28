@@ -11,6 +11,7 @@
 #Clients .client-logo-container {
   height: 100px;
   padding: 10px;
+
 }
 
 #Clients .client-logo {
@@ -21,7 +22,7 @@
 }
 
 #Clients .client-logo:hover {
-  transform: scale(1.5);
+  transform: scale(1.1);
 }
 
 /* ==== 🎠 CAROUSEL STYLES ==== */
@@ -68,18 +69,37 @@
   }
 
   #Clients .client-logo-container {
-    height: 80px;
+    height: 90px;
   }
 
   #Clients .client-logo {
-    max-height: 40px;
+    max-height: 70px;
   }
 
-  #Clients .carousel-control-prev {
-    left: -15px;
+
+}
+@media (max-width: 576px) {
+  .Clients-title {
+    font-size: 1.8rem;
   }
 
-  #Clients .carousel-control-next {
-    right: -15px;
+  #Clients .carousel {
+    padding: 5px 30px;
   }
+
+  #Clients .carousel-row {
+    /* ✅ Taller min-height for 3 rows on mobile */
+    min-height: 280px;
+  }
+
+  #Clients .client-logo-container {
+    height: 90px;
+    gap: 10px;
+  }
+
+  #Clients .client-logo {
+    max-height: 50px;
+  }
+
+
 }
