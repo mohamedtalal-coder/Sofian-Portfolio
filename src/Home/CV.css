@@ -216,4 +216,17 @@
     align-items: center;
   }
 }
+@media (max-width: 376px) {
+  .cert-image {
+    /* ✅ CHANGED THIS VALUE */
+    max-height: 150px; /* Was 150px. Adjust as needed. */
+  }
+  .cv-title {
+    font-size: 2rem;
+  }
+  .cv-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
