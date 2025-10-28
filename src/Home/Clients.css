@@ -9,14 +9,13 @@
 }
 
 #Clients .client-logo-container {
-  height: 100px;
+  height: 150px;
   padding: 10px;
-
 }
 
 #Clients .client-logo {
-  max-width: 100%;
-  max-height: 70px;
+  width: 100px;
+  height: 100px;
   object-fit: contain;
   transition: all 0.3s ease;
 }
@@ -75,8 +74,6 @@
   #Clients .client-logo {
     max-height: 70px;
   }
-
-
 }
 @media (max-width: 576px) {
   .Clients-title {
@@ -98,8 +95,29 @@
   }
 
   #Clients .client-logo {
-    max-height: 50px;
+    max-height: 80px;
+  }
+}
+@media (max-width: 350px) {
+  .Clients-title {
+    font-size: 1.8rem;
   }
 
+  #Clients .carousel {
+    padding: 5px 30px;
+  }
 
+  #Clients .carousel-row {
+    /* ✅ Taller min-height for 3 rows on mobile */
+    gap: 20px;
+    min-height: 280px;
+  }
+
+  #Clients .client-logo-container {
+    height: 90px;
+  }
+
+  #Clients .client-logo {
+    max-height: 60px;
+  }
 }

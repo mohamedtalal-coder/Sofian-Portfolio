@@ -171,7 +171,7 @@ const Clients = () => {
                 src={logoSrc} // ✅ Use the imported image source directly
                 alt={`Client logo ${index * slideSize + innerIndex + 1}`} // A more generic alt text
                 className="client-logo"
-                // ❌ Remove onError handler, as these are local files
+                
               />
             </div>
           ))}
