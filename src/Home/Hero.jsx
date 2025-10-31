@@ -33,16 +33,16 @@ const Hero = () => {
   const { lang } = useLanguage();
 
   // WhatsApp link
-  const whatsappLink = "https://wa.me/+6281360407597"; // Replace with actual WhatsApp number
+  const Linkedin = "https://www.linkedin.com/in/sofian-shublaq/"; // Replace with actual WhatsApp number
 
   const handleMouseEnter = (e) => {
     const button = e.currentTarget;
     const rect = button.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    
-    button.style.setProperty('--mouse-x', `${x}px`);
-    button.style.setProperty('--mouse-y', `${y}px`);
+
+    button.style.setProperty("--mouse-x", `${x}px`);
+    button.style.setProperty("--mouse-y", `${y}px`);
   };
 
   return (
@@ -69,9 +69,9 @@ const Hero = () => {
           />
 
           <div className="hero-buttons">
-            <a 
-              href={whatsappLink} 
-              target="_blank" 
+            <a
+              href={Linkedin}
+              target="_blank"
               rel="noopener noreferrer"
               className="btn contact-btn"
               onMouseEnter={handleMouseEnter}
