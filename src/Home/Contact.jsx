@@ -1,11 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  FaInstagram,
-  FaLinkedinIn,
-  FaWhatsapp,
-  FaEnvelope,
-} from "react-icons/fa";
+import { FaLinkedinIn, FaEnvelope } from "react-icons/fa";
 import { useLanguage } from "./LanguageContext"; // 1. Import the hook
 import "./Contact.css";
 
@@ -29,19 +24,9 @@ const Contact = () => {
 
   const socialLinks = [
     {
-      icon: <FaInstagram />,
-      url: "https://www.instagram.com/s.shublaq/",
-      name: "Instagram",
-    },
-    {
       icon: <FaLinkedinIn />,
       url: "https://www.linkedin.com/in/sofian-shublaq/",
       name: "LinkedIn",
-    },
-    {
-      icon: <FaWhatsapp />,
-      url: "https://wa.me/+6281360407597",
-      name: "Whatsapp",
     },
     {
       icon: <FaEnvelope />,
@@ -81,6 +66,7 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
               className="social-icon"
+              style={{ animationDelay: `${index * 1}s` }} // 🌊 stagger float
               whileHover={{ scale: 1.2, rotate: 5 }}
               whileTap={{ scale: 0.9 }}
             >

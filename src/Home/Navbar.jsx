@@ -11,7 +11,7 @@ const navContent = {
     customers: "Featured Clients",
     cv: "CV",
     reviews: "Reviews",
-    contact: "Contact Us",
+    contact: "Contact me",
   },
   ar: {
     home: "الرئيسية",
@@ -19,7 +19,7 @@ const navContent = {
     customers: "عملاء مميزون",
     cv: "السيرة الذاتية",
     reviews: "التقييمات",
-    contact: "اتصل بنا",
+    contact: "تواصل معي",
   },
 };
 

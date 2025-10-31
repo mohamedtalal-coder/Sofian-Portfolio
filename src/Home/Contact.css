@@ -1,69 +1,103 @@
 .contact-section {
   padding: 100px 20px;
-  color: #fff;
   text-align: center;
   border-radius: 30px;
-    }
+  color: #fff;
+}
 
 .contact-title {
-  font-size: 2.5rem;
-  color: #e9d5ff;
+  font-size: 2.8rem;
+  color: #f5f3ff;
   font-weight: 700;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
+  letter-spacing: 1px;
 }
 
 .contact-subtitle {
-  color: #cfc3f3;
-  font-size: 1.1rem;
-  margin-bottom: 40px;
+  color: #d8b4fe;
+  font-size: 1.2rem;
+  margin-bottom: 50px;
 }
 
 .social-links {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  align-items: center;
+  gap: 60px; /* wider gap for 2 icons */
   flex-wrap: wrap;
   margin-bottom: 40px;
+  position: relative;
 }
 
+/* 🎨 Icon styling */
 .social-icon {
+  position: relative;
   background: rgba(255, 255, 255, 0.1);
-  border: 2px solid rgba(147, 51, 234, 0.6);
-  color: #e9d5ff;
-  font-size: 1.8rem;
-  width: 60px;
-  height: 60px;
+  border: 2px solid rgba(168, 85, 247, 0.6);
+  color: #f5f3ff;
+  font-size: 2rem;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: all 0.3s ease;
+  transition: all 0.35s ease;
+  box-shadow: 0 0 15px rgba(147, 51, 234, 0.2);
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ✨ Floating animation */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* 💜 Hover glow + ripple effect */
+.social-icon::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.3);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+  z-index: -1;
+}
+
+.social-icon:hover::before {
+  transform: scale(1.5);
+  opacity: 0;
 }
 
 .social-icon:hover {
-  background: #a855f7;
-  box-shadow: 0 0 25px rgba(168, 85, 247, 0.7);
+  transform: scale(1.2) rotate(5deg);
+  background: linear-gradient(135deg, #a855f7, #7e22ce);
   color: #fff;
+  box-shadow: 0 0 35px rgba(168, 85, 247, 0.6);
   border-color: transparent;
 }
 
 .footer-note {
-  color: #a78bfa;
-  font-size: 0.9rem;
-  margin-top: 20px;
-  letter-spacing: 0.5px;
+  color: #c4b5fd;
+  font-size: 1rem;
+  margin-top: 25px;
+  letter-spacing: 0.6px;
 }
-
 
 /* 🌙 Responsive */
 @media (max-width: 768px) {
   .contact-title {
-    font-size: 2rem;
+    font-size: 2.2rem;
+  }
+
+  .social-links {
+    gap: 40px;
   }
 
   .social-icon {
-    width: 50px;
-    height: 50px;
-    font-size: 1.4rem;
+    width: 60px;
+    height: 60px;
+    font-size: 1.6rem;
   }
 }
