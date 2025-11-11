@@ -18,11 +18,13 @@
   overflow: hidden;
   margin: 0 auto;
   max-width: 1200px;
+  direction: ltr !important;
 }
 
 .logos-inner {
   display: flex;
   gap: 2rem;
+  direction: ltr !important;
 }
 
 .logo-item {
