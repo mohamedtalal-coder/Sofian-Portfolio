@@ -2,28 +2,36 @@ import React from "react";
 import { motion } from "framer-motion";
 import "./Hero.css";
 import profileImg from "../assets/Customers.jpg";
-import { useLanguage } from "./LanguageContext"; // 1. Import the hook
+import { useLanguage } from "./LanguageContext"; // language hook
 
-// 2. Create the content object
+// Contact URL: set to your preferred communication method (LinkedIn by default)
+const CONTACT_URL = "https://www.linkedin.com/in/sofian-shublaq/";
+
 const content = {
   en: {
-    greeting: "Hi, I'm ",
-    name: "Sofian Shublaq",
-    description: `
-      <strong>Voiceover Artist </strong>| Bilingual Arabic/English | 2500+ Projects
-      Delivered | Trusted by Emirates, Vodafone, Huawei & Gov Agencies |
-      Expert in Commercials, IVR, eLearning, Games, Documentaries & More
-    `,
+    greeting: "👋 Hello, I’m ",
+    nameLine: "Sofian Shublaq | Founder of Shublaq Studios",
+    subtitle: "Arabic–English Voiceover Artist | A global voice for businesses, institutions, and gaming",
+    stats: "More than +2500 voiceover projects",
+    trusted:
+      "Trusted by: Emirates Airline – Vodafone – Huawei – Ministry of Justice – Harvard University – Free Fire – PUBG – Qatar, UAE, and Australia.",
+    specializedTitle: "Specialized in:",
+    specializedList:
+      "Commercials – Gaming – IVR – eLearning – Documentaries – Government Projects – Corporate Content",
+    tagline: "A global voice… with an unmistakably authentic Arabic identity.",
     contactButton: "Contact Me",
   },
   ar: {
-    greeting: "مرحباً، أنا ",
-    name: "سفيان شبلاق",
-    description: `
-      <strong>معلق صوتي</strong> | ثنائي اللغة (عربي/إنجليزي) | أكثر من 2500
-      مشروع | موثوق به من قبل طيران الإمارات، فودافون، هواوي وجهات حكومية |
-      خبير في الإعلانات، الرد الآلي، التعليم الإلكتروني، الألعاب، الوثائقيات والمزيد
-    `,
+    greeting: "👋 مرحباً، أنا ",
+    nameLine: "سفيان شبلاق | مؤسس شبلاق ستوديو",
+    subtitle: "معلق صوتي عربي–إنجليزي | صوت عالمي للأعمال والمؤسسات والألعاب",
+    stats: "أكثر من 2500+ مشروع صوتي",
+    trusted:
+      "موثوق به من قبل: طيران الإمارات – فودافون – هواوي – وزارة العدل – جامعة هارفارد – فري فاير – ببجي – قطر، الإمارات، وأستراليا.",
+    specializedTitle: "متخصص في:",
+    specializedList:
+      "الإعلانات – الألعاب – الرد الآلي – التعليم الإلكتروني – الوثائقيات – المشاريع الحكومية – المحتوى المؤسسي",
+    tagline: "صوت عالمي… بهوية عربية لا تخطئها الأذن.",
     contactButton: "تواصل معي",
   },
 };
@@ -32,8 +40,8 @@ const Hero = () => {
   // 3. Get the current language
   const { lang } = useLanguage();
 
-  // WhatsApp link
-  const Linkedin = "https://www.linkedin.com/in/sofian-shublaq/"; // Replace with actual WhatsApp number
+  // contact link (editable above)
+  const contactLink = CONTACT_URL;
 
   const handleMouseEnter = (e) => {
     const button = e.currentTarget;
@@ -49,7 +57,7 @@ const Hero = () => {
     <section className="hero" id="home">
       <div className="hero-content">
         {/* 🧠 Text Section */}
-        <motion.div
+        <motion.div 
           className="hero-text "
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -57,20 +65,22 @@ const Hero = () => {
           viewport={{ once: true }}
         >
           {/* 4. Update the text fields */}
-          <h1>
-            {content[lang].greeting}
-            <span>{content[lang].name}</span>
-          </h1>
-          {/* Using dangerouslySetInnerHTML to keep the <strong> tag */}
-          <p
-            dangerouslySetInnerHTML={{
-              __html: content[lang].description,
-            }}
-          />
+          <h2 className="hero-greeting">{content[lang].greeting}</h2>
+          <h1 className="hero-name">{content[lang].nameLine}</h1>
+          <p className="hero-subtitle">{content[lang].subtitle}</p>
+
+          <p className="hero-stats">{content[lang].stats}</p>
+
+          <p className="hero-trusted">{content[lang].trusted}</p>
+
+          <h3 className="hero-specialized-title">{content[lang].specializedTitle}</h3>
+          <p className="hero-specialized-list">{content[lang].specializedList}</p>
+
+          <p className="hero-tagline"><strong>{content[lang].tagline}</strong></p>
 
           <div className="hero-buttons">
             <a
-              href={Linkedin}
+              href={contactLink}
               target="_blank"
               rel="noopener noreferrer"
               className="btn contact-btn"

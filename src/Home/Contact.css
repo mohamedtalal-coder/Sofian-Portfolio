@@ -71,11 +71,12 @@
 }
 
 .social-icon:hover {
-  transform: scale(1.2) rotate(5deg);
+  transform: scale(1.2) rotate(5deg) ;
   background: linear-gradient(135deg, #a855f7, #7e22ce);
   color: #fff;
   box-shadow: 0 0 35px rgba(168, 85, 247, 0.6);
   border-color: transparent;
+ 
 }
 
 .footer-note {
@@ -84,6 +85,100 @@
   margin-top: 25px;
   letter-spacing: 0.6px;
 }
+
+/* New contact specific styles */
+.contact-lines {
+  display: inline-block;
+  text-align: left;
+  margin-bottom: 18px;
+  color: #fff;
+}
+
+.contact-lines p {
+  margin: 10px 0;
+  font-size: 0.98rem;
+  line-height: 1.2;
+}
+
+.contact-link {
+  color: #c4b5fd;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.add-buttons {
+  margin: 14px 0;
+  font-size: 0.98rem;
+  color: #d1d5db;
+}
+
+.platform-list {
+  display: flex;
+  justify-content: center;
+  gap: 12px 18px;
+  flex-wrap: wrap;
+  margin: 10px 0 18px 0;
+}
+
+.platform-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  border: 1px solid rgba(168,85,247,0.18);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.25s ease;
+}
+
+.platform-btn { justify-content: center; }
+
+.platform-icon {
+  width: 28px;
+  height: 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.05rem;
+}
+
+.x-icon { font-weight: 700; font-size: 1.05rem; display: inline-block; }
+
+.platform-name { min-width: 60px; display: inline-block; text-align: left; }
+
+/* Icon-only buttons (e.g. X) */
+.platform-btn.icon-only {
+  padding: 8px;
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+}
+
+.platform-btn.icon-only .platform-icon { font-size: 1.05rem; }
+
+/* Keep icon-only centered in RTL as well */
+.contact-section.rtl .platform-list .platform-btn.icon-only { flex-direction: row; }
+
+.platform-btn:hover {
+  transform: translateY(-4px);
+  background: linear-gradient(135deg,#00b4d8,#a855f7);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* RTL support */
+.contact-section.rtl .contact-lines { text-align: right; }
+
+/* In RTL (Arabic) flip icon/text order on platform buttons */
+.contact-section.rtl .platform-list .platform-btn {
+  flex-direction: row-reverse;
+}
+
+.contact-section.rtl .platform-name { text-align: right; }
+
 
 /* 🌙 Responsive */
 @media (max-width: 768px) {
