@@ -1,2 +1,4 @@
 node_modules
-assets
+
+# Assets (images now on Cloudinary)
+src/assets
