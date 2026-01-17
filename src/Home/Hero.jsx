@@ -1,8 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import "./Hero.css";
-import profileImg from "../assets/Customers.jpg";
 import { useLanguage } from "./LanguageContext"; // language hook
+
+// Profile image - Cloudinary URL
+const profileImg = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648767/Customers_hnifpg.jpg";
 
 // Contact URL: set to your preferred communication method (LinkedIn by default)
 const CONTACT_URL = "https://www.linkedin.com/in/sofian-shublaq/";

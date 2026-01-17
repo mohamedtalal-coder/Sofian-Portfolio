@@ -1,51 +1,72 @@
-import React, { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState, memo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import "./Clients.css";
 import { useLanguage } from "./LanguageContext";
 
-// ✅ Import all logos
-import logo1 from "../assets/logos/Adnoc.png";
-import logo2 from "../assets/logos/Al Jouf University saudi.png";
-import logo3 from "../assets/logos/Awqaf qatar.png";
-import logo4 from "../assets/logos/Cyber Security Council uae.png";
-import logo5 from "../assets/logos/Delta Force.png";
-import logo6 from "../assets/logos/Doha Bank qatar.png";
-import logo7 from "../assets/logos/Emirates Airlines.png";
-import logo8 from "../assets/logos/Emirates Steel uae.png";
-import logo9 from "../assets/logos/Free fire.png";
-import logo10 from "../assets/logos/Harvard University.png";
-import logo11 from "../assets/logos/Huawei.png";
-import logo12 from "../assets/logos/International Labour Organization – Qatar branch, government..png";
-import logo13 from "../assets/logos/Islam web.png";
-import logo14 from "../assets/logos/Jarir Bookstore saudi.png";
-import logo15 from "../assets/logos/Listerine.png";
-import logo16 from "../assets/logos/MWANI Qatar.png";
-import logo17 from "../assets/logos/Magneti Marelli.png";
-import logo18 from "../assets/logos/Ministry of Energy and Infrastructure uae.png";
-import logo19 from "../assets/logos/Ministry of Justice qatar.png";
-import logo20 from "../assets/logos/Mobile legends.png";
-import logo21 from "../assets/logos/Moscow Kremlin Museum.png";
-import logo22 from "../assets/logos/NSW.png";
-import logo23 from "../assets/logos/Neutrogena.png";
-import logo24 from "../assets/logos/Olymp Trade.png";
-import logo25 from "../assets/logos/Orange.png";
-import logo26 from "../assets/logos/Pepsico.png";
-import logo27 from "../assets/logos/Pubg mobile.png";
-import logo28 from "../assets/logos/QIB Bank qatar.png";
-import logo29 from "../assets/logos/Qatar Communications Regulatory Authority.png";
-import logo30 from "../assets/logos/Social Development Bank saudi.png";
-import logo31 from "../assets/logos/Stc.jpg";
-import logo32 from "../assets/logos/Taif University saudi.png";
-import logo33 from "../assets/logos/UDC qatar.png";
-import logo34 from "../assets/logos/University of Qatar.png";
-import logo35 from "../assets/logos/Victoria State.png";
-import logo36 from "../assets/logos/Vodafone.png";
-import logo37 from "../assets/logos/AOE.png";
-import logo38 from "../assets/logos/oneState.png";
-import logo39 from "../assets/logos/Zain Sudan.png";
-import logo40 from "../assets/logos/Woolworths.png";
-import logo41 from "../assets/logos/Wonderful indonesia.png";
-import logo42 from "../assets/logos/Omantel.png";
+// ✅ Cloudinary URLs for logos
+const logo1 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646833/Adnoc_onzv2k.png";
+const logo2 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646835/Al_Jouf_University_saudi_aublsq.png";
+const logo3 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646835/Awqaf_qatar_chsgia.png";
+const logo4 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646835/Cyber_Security_Council_uae_fc19tr.png";
+const logo5 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646835/Delta_Force_sydmnv.png";
+const logo6 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646835/Doha_Bank_qatar_j4jrj0.png";
+const logo7 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646836/Emirates_Airlines_rnwrhc.png";
+const logo8 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646836/Emirates_Steel_uae_aaeupb.png";
+const logo9 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646836/Free_fire_tpeiqa.png";
+const logo10 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646841/Harvard_University_d75erg.png";
+const logo11 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646841/Huawei_d5ecwo.png";
+const logo12 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646841/International_Labour_Organization_Qatar_branch_government._q524e0.png";
+const logo13 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646842/Islam_web_q72usk.png";
+const logo14 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646842/Jarir_Bookstore_saudi_qkp51z.png";
+const logo15 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646842/Listerine_z92fwu.png";
+const logo16 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646882/MWANI_Qatar_yubjds.png";
+const logo17 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646869/Magneti_Marelli_r4tyeb.png";
+const logo18 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646881/Ministry_of_Energy_and_Infrastructure_uae_up3n52.png";
+const logo19 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646884/Ministry_of_Justice_qatar_xmrvgz.png";
+const logo20 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646881/Mobile_legends_fmbgcu.png";
+const logo21 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646881/Moscow_Kremlin_Museum_xjxjoh.png";
+const logo22 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646884/NSW_ltizdj.png";
+const logo23 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646882/Neutrogena_f7ay0b.png";
+const logo24 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646883/Olymp_Trade_bcszi9.png";
+const logo25 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646888/Orange_bpv3ra.png";
+const logo26 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646888/Pepsico_gbvq8w.png";
+const logo27 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646889/Pubg_mobile_qmelgv.png";
+const logo28 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646893/QIB_Bank_qatar_quzz8h.png";
+const logo29 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646889/Qatar_Communications_Regulatory_Authority_t0xvbe.jpg";
+const logo30 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646893/Social_Development_Bank_saudi_grpj0f.png";
+const logo31 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646893/Stc_sctaqo.jpg";
+const logo32 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646893/Taif_University_saudi_zzeso7.png";
+const logo33 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646894/UDC_qatar_rlj2h2.png";
+const logo34 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646899/University_of_Qatar_mhefjr.png";
+const logo35 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646905/Victoria_State_mjmfcz.png";
+const logo36 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646900/Vodafone_xmlizn.jpg";
+const logo37 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646836/AOE_ghe3qx.webp";
+const logo38 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646888/oneState_xrnmvi.webp";
+const logo39 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646900/Zain_Sudan_yu1v4s.png";
+const logo40 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646901/Woolworths_bzvud1.png";
+const logo41 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646902/Wonderful_indonesia_ob6xj7.png";
+const logo42 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646888/Omantel_x7uq28.png";
+
+// Memoized logo item to prevent unnecessary re-renders
+const LogoItem = memo(({ logo, index }) => (
+  <motion.div className="logo-item">
+    <img
+      src={logo}
+      alt={`Client ${index}`}
+      draggable="false"
+      loading="lazy"
+      onDragStart={(e) => e.preventDefault()}
+    />
+  </motion.div>
+));
+
+const clientLogos = [
+  logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
+  logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20,
+  logo21, logo22, logo23, logo24, logo25, logo26, logo27, logo28, logo29, logo30,
+  logo31, logo32, logo33, logo34, logo35, logo36, logo37, logo38, logo39, logo40,
+  logo41, logo42,
+];
 
 const Clients = () => {
   const { lang } = useLanguage();
@@ -53,14 +74,6 @@ const Clients = () => {
   const [scrollDuration, setScrollDuration] = useState(60);
   const carouselRef = useRef();
   const controls = useAnimation();
-
-  const clientLogos = [
-    logo1, logo2, logo3, logo4, logo5, logo6, logo7, logo8, logo9, logo10,
-    logo11, logo12, logo13, logo14, logo15, logo16, logo17, logo18, logo19, logo20,
-    logo21, logo22, logo23, logo24, logo25, logo26, logo27, logo28, logo29, logo30,
-    logo31, logo32, logo33, logo34, logo35, logo36, logo37, logo38, logo39, logo40,
-    logo41, logo42,
-  ];
 
   // ✅ Measure scroll width
   useEffect(() => {
@@ -135,14 +148,7 @@ const Clients = () => {
           animate={controls}
         >
           {[...clientLogos, ...clientLogos].map((logo, i) => (
-            <motion.div className="logo-item" key={i}>
-              <img
-                src={logo}
-                alt={`Client ${i}`}
-                draggable="false"
-                onDragStart={(e) => e.preventDefault()}
-              />
-            </motion.div>
+            <LogoItem key={i} logo={logo} index={i} />
           ))}
         </motion.div>
       </motion.div>
@@ -150,4 +156,4 @@ const Clients = () => {
   );
 };
 
-export default Clients;
+export default memo(Clients);

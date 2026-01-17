@@ -3,8 +3,9 @@ import { motion } from "framer-motion";
 import { useLanguage } from "./LanguageContext";
 import "./CV.css";
 
-import certImage1 from '../assets/StudioPhoto1.jpg'; 
-import certImage2 from '../assets/StudioPhoto2.jpg'; 
+// Studio photos - Cloudinary URLs
+const certImage1 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648769/StudioPhoto1_vthejn.jpg";
+const certImage2 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648768/StudioPhoto2_pitrqs.jpg";
 
 const CV = () => {
   const { lang } = useLanguage();
@@ -218,8 +219,8 @@ const CV = () => {
 
         <motion.div className="cv-download" variants={item}>
           <a
-            href="CV.pdf"
-            download="Sofian_Shubaq_CV.pdf"
+            href="https://drive.google.com/uc?export=download&id=11PekyGgR6Ay6WkJC5jtgqIVZmpWz9KxA"
+            download="Sofian_Shublaq_CV.pdf"
             target="_blank"
             rel="noopener noreferrer" // Good practice for target="_blank"
             className="btn-download"

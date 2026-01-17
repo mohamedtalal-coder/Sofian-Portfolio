@@ -1,29 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, memo, useCallback } from "react";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
 } from "reactstrap";
-import { useLanguage } from "./LanguageContext"; // <-- 1. Import the hook
+import { useLanguage } from "./LanguageContext";
 import "./Reviews.css";
 
-// --- 2. Define your images ---
-// (Replace these paths with your actual 10 image files)
+// English reviews - Cloudinary URLs
+const en_img1 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648669/1_acjeqh.png";
+const en_img2 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648669/2_tjmx3p.png";
+const en_img3 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648670/3_uhulmv.png";
+const en_img4 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648677/4_xkh8jn.png";
+const en_img5 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648677/5_igz3nn.png";
+const en_img6 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648677/6_hg2l1v.png";
+const en_img7 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648680/7_npjh4j.png";
+const en_img8 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648681/8_xzjmyk.png";
+const en_img9 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648682/9_tgku6m.png";
+const en_img10 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648683/10_szhoxb.png";
 
-// 5 English Images
-import en_img1 from "../assets/En/1.png";
-import en_img2 from "../assets/En/2.png";
-import en_img3 from "../assets/En/3.png";
-import en_img4 from "../assets/En/4.png";
-import en_img5 from "../assets/En/5.png";
-
-// 5 Arabic Images
-import ar_img1 from "../assets/Ar/1.png";
-import ar_img2 from "../assets/Ar/2.png";
-import ar_img3 from "../assets/Ar/3.png";
-import ar_img4 from "../assets/Ar/4.png";
-import ar_img5 from "../assets/Ar/5.png";
+// Arabic reviews - Cloudinary URLs
+const ar_img1 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648523/1_cu913j.png";
+const ar_img2 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648523/2_bpgw89.png";
+const ar_img3 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648523/3_fwyat3.png";
+const ar_img4 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648524/4_bglyod.png";
+const ar_img5 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648524/5_tmqyle.png";
+const ar_img6 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648524/6_aizghi.png";
+const ar_img7 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648524/7_xgzgzu.png";
+const ar_img8 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648524/8_gn4e5g.png";
+const ar_img9 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648531/9_nnyeej.png";
+const ar_img10 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768648532/10_yp1ikr.png";
 
 // --- 3. Create two separate item lists ---
 
@@ -33,6 +40,11 @@ const items_en = [
   { src: en_img3, altText: "Review 3", key: 3 },
   { src: en_img4, altText: "Review 4", key: 4 },
   { src: en_img5, altText: "Review 5", key: 5 },
+  { src: en_img6, altText: "Review 6", key: 6 },
+  { src: en_img7, altText: "Review 7", key: 7 },
+  { src: en_img8, altText: "Review 8", key: 8 },
+  { src: en_img9, altText: "Review 9", key: 9 },
+  { src: en_img10, altText: "Review 10", key: 10 },
 ];
 
 const items_ar = [
@@ -41,6 +53,11 @@ const items_ar = [
   { src: ar_img3, altText: "تقييم 3", key: 3 },
   { src: ar_img4, altText: "تقييم 4", key: 4 },
   { src: ar_img5, altText: "تقييم 5", key: 5 },
+  { src: ar_img6, altText: "تقييم 6", key: 6 },
+  { src: ar_img7, altText: "تقييم 7", key: 7 },
+  { src: ar_img8, altText: "تقييم 8", key: 8 },
+  { src: ar_img9, altText: "تقييم 9", key: 9 },
+  { src: ar_img10, altText: "تقييم 10", key: 10 },
 ];
 
 // --- 4. Add translations for the title ---
@@ -54,32 +71,29 @@ const content = {
 };
 
 function Reviews(args) {
-  const { lang } = useLanguage(); // <-- 5. Get the current language
-  const items = lang === "ar" ? items_ar : items_en; // <-- 6. Select the correct list
-  const t = content[lang]; // <-- 7. Select the correct text
+  const { lang } = useLanguage();
+  const items = lang === "ar" ? items_ar : items_en;
+  const t = content[lang];
 
   const [activeIndex, setActiveIndex] = useState(0);
   const [animating, setAnimating] = useState(false);
 
-  // All the functions below (next, previous, goToIndex)
-  // will now work with the correct language-specific 'items' array.
-
-  const next = () => {
+  const next = useCallback(() => {
     if (animating) return;
     const nextIndex = activeIndex === items.length - 1 ? 0 : activeIndex + 1;
     setActiveIndex(nextIndex);
-  };
+  }, [animating, activeIndex, items.length]);
 
-  const previous = () => {
+  const previous = useCallback(() => {
     if (animating) return;
     const nextIndex = activeIndex === 0 ? items.length - 1 : activeIndex - 1;
     setActiveIndex(nextIndex);
-  };
+  }, [animating, activeIndex, items.length]);
 
-  const goToIndex = (newIndex) => {
+  const goToIndex = useCallback((newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
-  };
+  }, [animating]);
 
   const slides = items.map((item) => {
     return (
@@ -88,13 +102,12 @@ function Reviews(args) {
         onExited={() => setAnimating(false)}
         key={item.src}
       >
-        <img src={item.src} alt={item.altText} className="w-75" />
+        <img src={item.src} alt={item.altText} className="w-75" loading="lazy" />
       </CarouselItem>
     );
   });
 
   return (
-    // <-- 8. Add the 'rtl' class for Arabic
     <section id="reviews" className={lang === "ar" ? "rtl" : ""}>
       <h1 className="d-flex justify-content-center mb-5">{t.title}</h1>
       <Carousel
@@ -124,4 +137,4 @@ function Reviews(args) {
   );
 }
 
-export default Reviews;
+export default memo(Reviews);
