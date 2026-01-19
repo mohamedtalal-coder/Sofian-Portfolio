@@ -102,7 +102,7 @@ const Hero = () => {
           viewport={{ once: true }}
         >
           <div className="image-mask">
-            <img src={profileImg} alt="Profile" />
+            <img src={profileImg} alt="Profile" loading="eager" fetchPriority="high" />
           </div>
         </motion.div>
       </div>

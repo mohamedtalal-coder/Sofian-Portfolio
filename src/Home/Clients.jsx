@@ -48,11 +48,11 @@ const logo41 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646902/Wo
 const logo42 = "https://res.cloudinary.com/dczhvcc0v/image/upload/v1768646888/Omantel_x7uq28.png";
 
 // Memoized logo item to prevent unnecessary re-renders
-const LogoItem = memo(({ logo, index }) => (
+const LogoItem = memo(({ logo }) => (
   <motion.div className="logo-item">
     <img
       src={logo}
-      alt={`Client ${index}`}
+      alt=""
       draggable="false"
       loading="lazy"
       onDragStart={(e) => e.preventDefault()}
@@ -148,7 +148,7 @@ const Clients = () => {
           animate={controls}
         >
           {[...clientLogos, ...clientLogos].map((logo, i) => (
-            <LogoItem key={i} logo={logo} index={i} />
+            <LogoItem key={i} logo={logo} />
           ))}
         </motion.div>
       </motion.div>
